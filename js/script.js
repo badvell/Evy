@@ -53,18 +53,26 @@ const obs = new IntersectionObserver(
       document.body.classList.remove("sticky");
     }
   },
-  {
-    // In the viewport
-    // root: null,
-    // threshold: 0,
-    // rootMargin: "-80px",
-  }
 );
 obs.observe(sectionContentEl);
 
 // burger menu
-const menuBurger = document.querySelector('.burger');
+const menuBurger = document.querySelector('.header__menu');
+const menuBurgerOpen = document.querySelector('.header__nav');
+const body = document.body;
 
-menuBurger.addEventListener('click', () => {
-  menuBurger.classList.toggle('burger__line-active');
+if (menuBurger && menuBurgerOpen) {
+  menuBurger.addEventListener('click', () => {
+    menuBurger.classList.toggle('open');
+    menuBurgerOpen.classList.toggle('header__nav_open');
+    body.classList.toggle('fixscreen');
+  });
+}
+
+menuBurgerOpen.querySelectorAll('.header__link').forEach(link => {
+  link.addEventListener('click', () => {
+    menuBurger.classList.remove('open');
+    menuBurgerOpen.classList.remove('header__nav_open');
+    body.classList.remove('fixscreen');
+  });
 });
