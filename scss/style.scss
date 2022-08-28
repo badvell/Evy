@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap');
 
 * {
   padding: 0;
@@ -11,12 +11,13 @@ html {
 }
 
 :root {
+  --primary-font: 'Jost', sans-serif;
   --main-text-color: rgba(255, 255, 255, 0.6);
   --section-text-color: #888;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--primary-font);
   &.fixscreen {
     overflow: hidden;
   }
@@ -36,7 +37,7 @@ ul {
   position: fixed;
   top: 0;
   height: 8rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 87%);
   z-index: 100;
   box-shadow: 0 1.2rem 3.2rem rgb(0 0 0 / 3%);
   transition: all 0.4s ease-in-out;
@@ -58,7 +59,7 @@ ul {
   position: absolute;
 
   &__logo {
-    font-family: 'Poppins';
+    font-family: var(--primary-font);
     font-style: normal;
     font-weight: 600;
     font-size: 2.5rem;
@@ -84,7 +85,7 @@ ul {
   &__nav {
     display: flex;
     gap: 3.8rem;
-    @media (max-width: 45.5rem) {
+    @media (max-width: 50rem) {
       display: none;
     }
     &_open {
@@ -109,25 +110,26 @@ ul {
   }
 
   &__link {
-    font-family: 'Poppins';
+    font-family: var(--primary-font);
     font-style: normal;
     font-weight: 600;
     text-decoration: none;
     font-size: 16px;
     line-height: 24px;
     color: var(--main-text-color);
+    transition: all 0.3s ease-in-out;
     &:hover {
       opacity: 0.9;
       color: #fff;
     }
-    @media (max-width: 45.5rem) {
+    @media (max-width: 50rem) {
       font-size: 3rem;
     }
   }
 
   &__menu {
     display: none;
-    @media (max-width: 45.5rem) {
+    @media (max-width: 50rem) {
       display: block;
       cursor: pointer;
     }
@@ -138,6 +140,10 @@ ul {
       background-color: var(--main-text-color);
       transform-origin: 5px 1px;
       transition: all 0.3s ease-in-out;
+      &:hover {
+        opacity: 0.9;
+        color: #fff;
+      }
 
       &:not(:last-child) {
         margin-bottom: 5px;
@@ -172,6 +178,9 @@ ul {
   &__text {
     display: flex;
     align-items: center;
+    font-family: var(--primary-font);
+    font-weight: 700;
+    padding: 0 1.3rem;
     max-width: 137rem;
     font-size: 12rem;
     color: var(--main-text-color);
@@ -184,9 +193,11 @@ ul {
 
   &__wrapper {
     display: grid;
+    margin-top: 3rem;
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(4, 1fr);
   }
 
   &__highlight {
@@ -197,7 +208,7 @@ ul {
   }
 
   &__images {
-    width: 20rem;
+    width: 16rem;
   }
 
   &__img {

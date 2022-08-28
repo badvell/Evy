@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -10,12 +10,13 @@ html {
 }
 
 :root {
+  --primary-font: "Jost", sans-serif;
   --main-text-color: rgba(255, 255, 255, 0.6);
   --section-text-color: #888;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: var(--primary-font);
 }
 body.fixscreen {
   overflow: hidden;
@@ -35,7 +36,7 @@ ul {
   position: fixed;
   top: 0;
   height: 8rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.87);
   z-index: 100;
   box-shadow: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03);
   transition: all 0.4s ease-in-out;
@@ -57,7 +58,7 @@ ul {
   position: absolute;
 }
 .header__logo {
-  font-family: "Poppins";
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 600;
   font-size: 2.5rem;
@@ -81,7 +82,7 @@ ul {
   display: flex;
   gap: 3.8rem;
 }
-@media (max-width: 45.5rem) {
+@media (max-width: 50rem) {
   .header__nav {
     display: none;
   }
@@ -102,19 +103,20 @@ ul {
   transition: all 0.4s ease;
 }
 .header__link {
-  font-family: "Poppins";
+  font-family: var(--primary-font);
   font-style: normal;
   font-weight: 600;
   text-decoration: none;
   font-size: 16px;
   line-height: 24px;
   color: var(--main-text-color);
+  transition: all 0.3s ease-in-out;
 }
 .header__link:hover {
   opacity: 0.9;
   color: #fff;
 }
-@media (max-width: 45.5rem) {
+@media (max-width: 50rem) {
   .header__link {
     font-size: 3rem;
   }
@@ -122,7 +124,7 @@ ul {
 .header__menu {
   display: none;
 }
-@media (max-width: 45.5rem) {
+@media (max-width: 50rem) {
   .header__menu {
     display: block;
     cursor: pointer;
@@ -135,6 +137,10 @@ ul {
   background-color: var(--main-text-color);
   transform-origin: 5px 1px;
   transition: all 0.3s ease-in-out;
+}
+.header__menu > span:hover {
+  opacity: 0.9;
+  color: #fff;
 }
 .header__menu > span:not(:last-child) {
   margin-bottom: 5px;
@@ -164,6 +170,9 @@ ul {
 .content__text {
   display: flex;
   align-items: center;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  padding: 0 1.3rem;
   max-width: 137rem;
   font-size: 12rem;
   color: var(--main-text-color);
@@ -175,9 +184,11 @@ ul {
 }
 .features__wrapper {
   display: grid;
+  margin-top: 3rem;
   justify-items: center;
   align-items: center;
   grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(4, 1fr);
 }
 .features__highlight {
   display: flex;
@@ -186,7 +197,7 @@ ul {
   justify-content: center;
 }
 .features__images {
-  width: 20rem;
+  width: 16rem;
 }
 .features__img {
   width: 10rem;
