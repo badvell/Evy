@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script defer src="js/script.js"></script>
     <link rel="stylesheet" href="scss/style.css" />
+    <script defer src="js/script.js"></script>
     <title>Explore</title>
   </head>
   <body>
@@ -15,7 +15,7 @@
         <div class="header__navigations">
           <ul class="header__nav">
             <li>
-              <a href="" class="header__link">About Us</a>
+              <a href="#about" class="header__link">About Us</a>
             </li>
             <li>
               <a href="#features" class="header__link">Features</a>
@@ -40,8 +40,34 @@
     </header>
     <main>
       <section class="content">
-        <h1 class="content__text">Passion about Switzerland</h1>
-        <div class="content__img"></div>
+        <div class="content__container">
+          <span class="content__subtext">we love</span>
+          <h1 class="content__text">Switzerland</h1>
+
+          <!-- Content Slider Start -->
+
+          <img src="./img/BG.jpg" alt="Swiss nature" class="content__img" />
+          <!-- <img src="./img/BG-2.jpg" alt="Swiss village" class="content__img" /> -->
+          <img src="./img/BG-3.jpg" alt="Swiss village" class="content__img" />
+          <img src="./img/BG-4.jpg" alt="Swiss village" class="content__img" />
+          <img src="./img/BG-5.jpg" alt="Swiss village" class="content__img" />
+
+          <!-- Content Slider End -->
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <h2 class="text about__text">About us</h2>
+        <div class="about__container">
+          <p class="about__title">
+            We capture nature, art, interiors, food at their best.
+          </p>
+          <p class="about__description">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. In voluptas
+            nostrum quas aperiam autem libero! Quae non mollitia sed dolorem ea
+            facere illum fuga veniam est. Velit fugit labore explicabo.
+          </p>
+        </div>
       </section>
 
       <section class="features" id="features">
