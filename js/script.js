@@ -1,3 +1,5 @@
+'use strict';
+
 let slide = 0;
 let image = document.getElementsByClassName('content__img');
 
@@ -15,6 +17,15 @@ function carousel() {
   setTimeout(carousel, 6000); // Change image every 5 seconds
 }
 carousel();
+
+// Typewriter
+let typed = new Typed('.content__text', {
+  strings: ['Switzerland', 'Photography', 'Travel'],
+  typeSpeed: 150,
+  backSpeed: 150,
+  loop: true,
+  showCursor: false,
+});
 
 const allLinks = document.querySelectorAll('a:link');
 

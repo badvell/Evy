@@ -169,7 +169,7 @@ ul {
   display: flex;
   height: 100vh;
   width: 100%;
-  background: linear-gradient(45deg, #0000008f, transparent);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 
   &__subtext {
     font-family: var(--primary-font);
@@ -189,7 +189,7 @@ ul {
   &__text {
     font-family: var(--primary-font);
     font-weight: 700;
-    line-height: 1.2;
+    height: 10rem;
     font-size: 10rem;
     color: var(--main-text-color);
   }
@@ -255,13 +255,41 @@ ul {
 .gallery {
   &__images {
     display: grid;
-    gap: 0.5rem;
+    gap: 1rem;
     grid-template-columns: repeat(3, 1fr);
     // grid-template-rows: repeat(2, 50rem);
     justify-items: center;
   }
 
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.4s;
+    opacity: 1;
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-0.5rem);
+      box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+      opacity: 0.6;
+    }
+  }
+
   &__img {
     width: 100%;
+  }
+
+  &__img_text {
+    display: flex;
+    font-family: var(--primary-font);
+    font-weight: normal;
+    font-size: 5rem;
+    color: var(--main-text-color);
+    justify-content: center;
+    align-items: center;
+    position: absolute;
   }
 }
