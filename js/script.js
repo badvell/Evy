@@ -27,7 +27,7 @@ let typed = new Typed('.content__text', {
   showCursor: false,
 });
 
-const allLinks = document.querySelectorAll('a:link');
+const allLinks = document.querySelectorAll('.header__link, .header__logo');
 
 allLinks.forEach(function (link) {
   link.addEventListener('click', function (evt) {

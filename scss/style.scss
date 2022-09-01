@@ -398,6 +398,7 @@ ul {
   }
   &__icons {
     display: flex;
+    gap: 1rem;
   }
   &__text {
     font-family: var(--primary-font);
@@ -405,7 +406,7 @@ ul {
   }
   &__img {
     padding-top: 1rem;
-    width: 2rem;
+    width: 3rem;
     &:hover {
       opacity: 0.7;
     }
