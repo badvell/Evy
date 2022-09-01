@@ -22,7 +22,7 @@ carousel();
 let typed = new Typed('.content__text', {
   strings: ['Switzerland', 'Photography', 'Travel'],
   typeSpeed: 150,
-  backSpeed: 150,
+  backSpeed: 90,
   loop: true,
   showCursor: false,
 });
