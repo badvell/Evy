@@ -14,6 +14,7 @@ html {
   --primary-font: 'Jost', sans-serif;
   --main-text-color: rgba(255, 255, 255, 0.6);
   --section-text-color: #2e2e2e;
+  --all-transition: all 0.4s ease;
 }
 
 body {
@@ -47,7 +48,23 @@ ul {
   background-color: rgba(0, 0, 0, 87%);
   z-index: 100;
   box-shadow: 0 1.2rem 3.2rem rgb(0 0 0 / 3%);
-  transition: all 0.4s ease-in-out;
+  transition: var(--all-transition);
+}
+
+section {
+  transition: var(--all-transition);
+}
+.section__hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+
+.scroll-down .header {
+  box-shadow: 0 1.2rem 3.2rem rgb(0 0 0 / 3%);
+}
+
+.scroll-up .header {
+  transform: translate3d(0, 100% 0);
 }
 
 .text {
@@ -100,24 +117,20 @@ ul {
     gap: 3.8rem;
     @media (max-width: 50rem) {
       display: none;
-    }
-    &_open {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      overflow: auto;
-      gap: 8rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background: linear-gradient(
-        to right bottom,
-        rgba(0, 0, 0, 1),
-        rgba(54, 54, 54, 0.7)
-      );
+      &_open {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        overflow: auto;
+        gap: 8rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.9);
+      }
     }
   }
 
@@ -129,7 +142,7 @@ ul {
     font-size: 16px;
     line-height: 24px;
     color: var(--main-text-color);
-    transition: all 0.3s ease-in-out;
+    transition: var(--all-transition);
     &:hover {
       opacity: 0.9;
       color: #fff;
@@ -151,7 +164,7 @@ ul {
       height: 2px;
       background-color: var(--main-text-color);
       transform-origin: 5px 1px;
-      transition: all 0.3s ease-in-out;
+      transition: var(--all-transition);
       &:hover {
         opacity: 0.9;
         color: #fff;
@@ -275,7 +288,7 @@ ul {
   &__info {
     font-family: var(--primary-font);
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 3rem;
     margin-bottom: 2rem;
     opacity: 0.87;
@@ -289,17 +302,41 @@ ul {
   }
   &__description {
     font-size: 3rem;
-    font-weight: 400;
     line-height: 1.2;
     @media (max-width: 50rem) {
       font-size: 2rem;
     }
   }
+  &__btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    align-items: center;
+  }
   &__email {
+    padding: 1rem;
+    background: rgba(195, 187, 102, 0.5);
+    border-radius: 4rem;
+    text-align: center;
+    max-width: 17rem;
+    width: 100%;
     font-family: var(--primary-font);
     font-weight: 600;
     text-decoration: none;
+    font-size: 1.8rem;
     color: var(--section-text-color);
+    box-shadow: 0 1rem 1.5rem rgb(0 0 0 / 20%);
+    transition: var(--all-transition);
+    &:hover {
+      background: rgba(195, 187, 102, 0.9);
+      transform: translateY(-0.3rem);
+    }
+  }
+  &__send {
+    position: relative;
+    top: 4px;
+    width: 2rem;
+    height: 2rem;
   }
 }
 
@@ -363,57 +400,38 @@ ul {
     grid-template-columns: repeat(3, 1fr);
     gap: 0.7rem;
     justify-content: center;
-    // @media (max-width: 43.8rem) {
-    //   grid-template-columns: repeat(2, 1fr);
-    // }
+    @media (max-width: 43.8rem) {
+      grid-template-columns: repeat(2, 1fr);
+    }
     @media (max-width: 28.1rem) {
       grid-template-columns: repeat(1, 1fr);
     }
   }
   &__image {
+    display: flex;
+    justify-content: center;
     position: relative;
     cursor: pointer;
     box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
-    &:hover {
-      transform: translateY(-0.5rem);
-      box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.4);
-    }
+    overflow: hidden;
   }
   &__img {
     display: block;
     object-fit: cover;
     width: 100%;
     height: 100%;
-  }
-  &__overlay {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: var(--primary-font);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--main-text-color);
-    transition: all 0.4s ease;
-    opacity: 0;
+    transition: var(--all-transition);
     &:hover {
-      opacity: 1;
-      &:hover,
-      & > * {
-        transform: translateY(0);
-      }
-    }
-    &__overlay,
-    & > * {
-      transform: translateY(5rem);
-      transition: transform 0.4s;
+      transform: scale(1.1);
+      filter: brightness(0.5);
     }
   }
   &__title {
+    position: absolute;
+    top: 50%;
+    color: var(--main-text-color);
+    text-shadow: 1px -1px 8px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
     font-size: 7rem;
     font-weight: 600;
     @media (max-width: 78.8rem) {
@@ -453,8 +471,66 @@ ul {
   &__img {
     padding-top: 1rem;
     width: 3rem;
+    transition: var(--all-transition);
     &:hover {
       opacity: 0.7;
+    }
+  }
+}
+
+.popup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  &__wrapper {
+    position: relative;
+  }
+  &__img {
+    max-width: 75vw;
+    max-height: 90vh;
+  }
+  &__title {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 400;
+    font-style: normal;
+    font-family: var(--primary-font);
+  }
+  &_active {
+    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transition: var(--all-transition);
+  }
+  &__btn {
+    position: absolute;
+    top: 50%;
+    height: 3.2rem;
+    width: 3.2rem;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    background-repeat: no-repeat;
+    transition: var(--all-transition);
+    &:hover {
+      transform: translateY(-0.2rem);
+      opacity: 0.5;
+    }
+    &-next {
+      background-image: url(../img/caret-right.svg);
+      right: -5rem;
+    }
+    &-prev {
+      background-image: url(../img/caret-left.svg);
+      left: -5rem;
     }
   }
 }
