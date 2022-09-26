@@ -15,6 +15,7 @@ const popup = document.querySelector('.popup');
 const popupTitle = document.querySelector('.popup__title');
 const popupWrapper = document.querySelector('.popup__wrapper img');
 
+const btnClose = document.querySelector('.popup__close');
 const btnNext = document.querySelector('.popup__btn-next');
 const btnPrev = document.querySelector('.popup__btn-prev');
 const allImages = [...document.querySelectorAll('.gallery__img')];
@@ -142,6 +143,8 @@ window.addEventListener('click', (evt) => {
 window.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') closeModal();
 });
+
+btnClose.addEventListener('click', closeModal);
 
 btnNext.addEventListener('click', () => {
   (curSlide < allImages.length - 1) ? updateUrl(curSlide + 1) : updateUrl(curSlide = 0);

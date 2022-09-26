@@ -495,7 +495,7 @@ section {
   }
   &__img {
     max-width: 75vw;
-    max-height: 90vh;
+    max-height: 80vh;
   }
   &__title {
     color: #fff;
@@ -509,6 +509,7 @@ section {
     visibility: visible;
     opacity: 1;
     transition: var(--all-transition);
+    z-index: 100;
   }
   &__btn {
     position: absolute;
@@ -532,5 +533,18 @@ section {
       background-image: url(../img/caret-left.svg);
       left: -5rem;
     }
+  }
+  &__close {
+    display: block;
+    position: absolute;
+    right: -4rem;
+    top: -4rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: none;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-image: url(../img/close.svg);
+    background-color: transparent;
   }
 }
