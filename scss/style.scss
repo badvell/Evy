@@ -28,6 +28,8 @@ body {
   text-rendering: optimizeLegibility;
   &.fixscreen {
     overflow: hidden;
+    touch-action: none;
+    -ms-touch-action: none;
   }
 }
 
@@ -437,12 +439,6 @@ section {
     @media (max-width: 78.8rem) {
       font-size: 5rem;
     }
-    @media (max-width: 54.6rem) {
-      font-size: 4rem;
-    }
-    @media (max-width: 44.6rem) {
-      font-size: 3rem;
-    }
   }
 }
 
@@ -546,5 +542,9 @@ section {
     background-repeat: no-repeat;
     background-image: url(../img/close.svg);
     background-color: transparent;
+    transition: var(--all-transition);
+    &:hover {
+      opacity: 0.5;
+    }
   }
 }
